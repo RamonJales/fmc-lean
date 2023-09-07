@@ -49,7 +49,8 @@
     },
     {
       "lean": "lemma add_right_comm (a b c : mynat) : a + b + c = a + c + b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction c with d hd,\nrw add_zero,\nrw add_zero,\nrefl,\nrw add_succ (a+b) d,\nrw hd,\nrw add_succ a d,\nrw succ_add (a+d) b,\nrefl,\n"
     },
     {
       "lean": "lemma zero_mul (m : mynat) : 0 * m = 0 :=\n",
