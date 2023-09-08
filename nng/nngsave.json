@@ -94,7 +94,8 @@
     },
     {
       "lean": "lemma mul_left_comm (a b c : mynat) : a * (b * c) = b * (a * c) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction c with d hd,\nsimp,\nrw mul_succ,\nrw mul_succ,\nrw mul_add,\nrw hd,\nrw mul_add,\nrw mul_comm b a,\nrefl,\n"
     },
     {
       "lean": "lemma zero_pow_zero : (0 : mynat) ^ (0 : mynat) = 1 :=\n",
