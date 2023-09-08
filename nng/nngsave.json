@@ -89,7 +89,8 @@
     },
     {
       "lean": "lemma mul_comm (a b : mynat) : a * b = b * a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with d hd,\nsimp,\nrw mul_succ,\nrw succ_mul,\nrw hd,\nrefl,\n"
     },
     {
       "lean": "lemma mul_left_comm (a b c : mynat) : a * (b * c) = b * (a * c) :=\n",
