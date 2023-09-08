@@ -84,7 +84,8 @@
     },
     {
       "lean": "lemma add_mul (a b t : mynat) : (a + b) * t = a * t + b * t :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction t with d hd,\nrw mul_zero,\nrw mul_zero,\nrw mul_zero,\nsimp,\nrw mul_succ,\nrw hd,\nrw mul_succ,\nrw mul_succ,\nsimp,\n"
     },
     {
       "lean": "lemma mul_comm (a b : mynat) : a * b = b * a :=\n",
