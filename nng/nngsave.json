@@ -104,7 +104,8 @@
     },
     {
       "lean": "lemma zero_pow_succ (m : mynat) : (0 : mynat) ^ (succ m) = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw pow_succ,\nrwa mul_zero,\n"
     },
     {
       "lean": "lemma pow_one (a : mynat) : a ^ (1 : mynat) = a :=\n",
