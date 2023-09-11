@@ -184,7 +184,8 @@
     },
     {
       "lean": "example (P Q : Prop) (p : P) (h : P → Q) : Q :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "exact h(p),\n"
     },
     {
       "lean": "lemma imp_self (P : Prop) : P → P :=\n",
