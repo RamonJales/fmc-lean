@@ -155,7 +155,7 @@
     {
       "lean": "example (P Q R S T U: Type)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
       "isSolved": true,
-      "editorText": "apply l,\napply j,\napply h,\nexact p,\n"
+      "editorText": "have q : Q := h(p),\nhave t : T := j(q),\nhave u : U := l(t),\nexact u,\n"
     },
     {
       "lean": "example (P Q : Type) : P → (Q → P) :=\n",
@@ -164,7 +164,8 @@
     },
     {
       "lean": "example (P Q R : Type) : (P → (Q → R)) → ((P → Q) → (P → R)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro pqr,\nintro pq,\nintro p,\nhave q : Q := pq(p),\nhave qr : Q → R := pqr(p),\nhave r : R := qr(q),\nexact r,\n"
     },
     {
       "lean": "example (P Q F : Type) : (P → Q) → ((Q → F) → (P → F)) :=\n",
