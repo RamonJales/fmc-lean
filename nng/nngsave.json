@@ -144,7 +144,8 @@
     },
     {
       "lean": "example : mynat → mynat :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro n,\nexact 3*n+2,\n"
     },
     {
       "lean": "example (P Q R S T U: Type)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
