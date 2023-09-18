@@ -199,7 +199,7 @@
     {
       "lean": "lemma maze (P Q R S T U: Prop)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
       "isSolved": true,
-      "editorText": "apply l,\napply j,\napply h,\nexact p,\n"
+      "editorText": "have q : Q := h(p),\nhave t : T := j(q),\nhave u : U := l(t),\nexact u,\n"
     },
     {
       "lean": "example (P Q : Prop) : P → (Q → P) :=\n",
@@ -208,19 +208,23 @@
     },
     {
       "lean": "example (P Q R : Prop) : (P → (Q → R)) → ((P → Q) → (P → R)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro pqr,\nintro pq, \nintro p,\nhave q : Q := pq p,\nhave qr : Q → R := pqr p,\nhave r : R := qr q,\nexact r,\n"
     },
     {
       "lean": "lemma imp_trans (P Q R : Prop) : (P → Q) → ((Q → R) → (P → R)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro pq,\nintro qr,\nintro p,\nhave q : Q := pq p,\nhave r : R := qr q,\nexact r,\n"
     },
     {
       "lean": "lemma contrapositive (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "repeat {rw not_iff_imp_false},\nintro pq,\nintro qf,\nintro p,\nhave q := pq p,\nhave f := qf q,\ncontradiction,\n"
     },
     {
       "lean": "example (A B C D E F G H I J K L : Prop)\n(f1 : A → B) (f2 : B → E) (f3 : E → D) (f4 : D → A) (f5 : E → F)\n(f6 : F → C) (f7 : B → C) (f8 : F → G) (f9 : G → J) (f10 : I → J)\n(f11 : J → I) (f12 : I → H) (f13 : E → H) (f14 : H → K) (f15 : I → L)\n : A → L :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro a,\nhave b : B := f1(a),\nhave e : E := f2(b),\nhave f : F := f5(e),\nhave g : G := f8(f),\nhave j : J := f9(g),\nhave i : I := f11(j),\nhave l : L := f15(i),\nexact l,\n"
     },
     {
       "lean": "example (P Q : Prop) (p : P) (q : Q) : P ∧ Q :=\n",
