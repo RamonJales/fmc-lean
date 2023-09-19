@@ -244,31 +244,38 @@
     },
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
-      "editorText": ""
+      "isSolved": true,
+      "editorText": "intro iffpq,\nintro iffqr,\nsplit,\nintro p,\ncases iffpq with pq qp,\ncases iffqr with qr rq,\nhave q := pq p,\nhave r := qr q,\nexact r,\nintro r,\ncases iffqr with qr rq,\ncases iffpq with pq qp,\nhave q := rq r,\nhave p := qp q,\nexact p,\n"
     },
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
-      "editorText": ""
+      "isSolved": true,
+      "editorText": "intros iffpq iffqr,\nsplit,\nintro p,\nhave q := iffpq.1 p,\nhave r := iffqr.1 q,\nexact r,\nintro r,\nhave q := iffqr.2 r,\nhave p := iffpq.2 q,\nexact p,\n"
     },
     {
       "lean": "example (P Q : Prop) : Q → (P ∨ Q) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro q,\nright,\nexact q,\n"
     },
     {
       "lean": "lemma or_symm (P Q : Prop) : P ∨ Q → Q ∨ P :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro poq,\ncases poq with p q,\nright,\nexact p,\nleft,\nexact q,\n"
     },
     {
       "lean": "lemma and_or_distrib_left (P Q R : Prop) : P ∧ (Q ∨ R) ↔ (P ∧ Q) ∨ (P ∧ R) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "split,\nintro h,\ncases h with p qor,\ncases qor with q r,\nleft,\nsplit,\nexact p,\nexact q,\nright,\nsplit,\nexact p,\nexact r,\nintro h,\ncases h with pq pr,\nsplit,\ncases pq with p q,\nexact p,\ncases pq with p q,\nleft,\nexact q,\ncases pr with p r,\nsplit,\nexact p,\nright,\nexact r,\n"
     },
     {
       "lean": "lemma contra (P Q : Prop) : (P ∧ ¬ P) → Q :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro h,\ncases h with p np,\nhave f := np p,\nexfalso,\ncontradiction,\n"
     },
     {
       "lean": "lemma contrapositive2 (P Q : Prop) : (¬ Q → ¬ P) → (P → Q) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "by_cases p : P; by_cases q : Q,\nintro h,\nintro p,\nexact q,\nrepeat{cc},\n"
     },
     {
       "lean": "theorem succ_inj' {a b : mynat} (hs : succ(a) = succ(b)) :  a = b := \n",
