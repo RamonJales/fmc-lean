@@ -250,7 +250,7 @@
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
       "isSolved": true,
-      "editorText": "intros iffpq iffqr,\nsplit,\nintro p,\nhave q := iffpq.1 p,\nhave r := iffqr.1 q,\nexact r,\nintro r,\nhave q := iffqr.2 r,\nhave p := iffpq.2 q,\nexact p,\n"
+      "editorText": "intro iffpq,\nintro iffqr,\nsplit,\nintro p,\ncases iffpq with pq qp,\ncases iffqr with qr rq,\nhave q := pq p,\nhave r := qr q,\nexact r,\nintro r,\ncases iffqr with qr rq,\ncases iffpq with pq qp,\nhave q := rq r,\nhave p := qp q,\nexact p,\n"
     },
     {
       "lean": "example (P Q : Prop) : Q → (P ∨ Q) :=\n",
@@ -279,7 +279,8 @@
     },
     {
       "lean": "theorem succ_inj' {a b : mynat} (hs : succ(a) = succ(b)) :  a = b := \n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "apply succ_inj,\nexact hs,\n"
     },
     {
       "lean": "theorem succ_succ_inj {a b : mynat} (h : succ(succ(a)) = succ(succ(b))) :  a = b := \n",
