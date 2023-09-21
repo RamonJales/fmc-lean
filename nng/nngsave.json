@@ -419,7 +419,8 @@
     },
     {
       "lean": "theorem le_of_succ_le_succ (a b : mynat) : succ a ≤ succ b → a ≤ b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro h,\ncases h with p h1,\nrw succ_add at h1,\nhave h2 := succ_inj(h1),\nuse p,\nexact h2,\n"
     },
     {
       "lean": "theorem not_succ_le_self (a : mynat) : ¬ (succ a ≤ a) :=\n",
