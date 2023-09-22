@@ -17,16 +17,21 @@ begin
   contradiction,
 end
 
-theorem doubleneg_elim :
+theorem doubleneg_elim : --⛤
   ¬¬P → P  :=
 begin
-  sorry,
+  intro p1,
+  by_contra hboom,
+  have boom := p1 hboom,
+  contradiction,
 end
 
-theorem doubleneg_law :
+theorem doubleneg_law : --⛤
   ¬¬P ↔ P  :=
 begin
-  sorry,
+  split,
+  apply doubleneg_elim,
+  apply doubleneg_intro,
 end
 
 ------------------------------------------------
