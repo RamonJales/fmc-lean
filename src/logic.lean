@@ -160,13 +160,27 @@ end
 theorem disj_as_negconj :
   P∨Q → ¬(¬P∧¬Q)  :=
 begin
-  sorry,
+  intro pq,
+  intro h1,
+  cases h1 with np nq,
+  cases pq with p q,
+  have f := np p,
+  exact f,
+  have f:= nq q,
+  exact f,
 end
 
 theorem conj_as_negdisj :
   P∧Q → ¬(¬P∨¬Q)  :=
 begin
-  sorry,
+  intro h1,
+  intro h2,
+  cases h1 with p q,
+  cases h2 with np nq,
+  have f := np p,
+  exact f,
+  have f := nq q,
+  exact f,
 end
 
 
