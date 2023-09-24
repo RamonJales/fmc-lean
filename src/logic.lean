@@ -397,37 +397,55 @@ end
 theorem weaken_disj_right :
   P → (P∨Q)  :=
 begin
-  sorry,
+  intro p,
+  left,
+  exact p,
 end
 
 theorem weaken_disj_left :
   Q → (P∨Q)  :=
 begin
-  sorry,
+  intro q,
+  right,
+  exact q,
 end
 
 theorem weaken_conj_right :
   (P∧Q) → P  :=
 begin
-  sorry,
+  intro pq,
+  cases pq with p q,
+  exact p,
 end
 
 theorem weaken_conj_left :
   (P∧Q) → Q  :=
 begin
-  sorry,
+  intro pq,
+  cases pq with p q,
+  exact q,
 end
 
 theorem conj_idempot :
   (P∧P) ↔ P :=
 begin
-  sorry,
+  split,
+  apply weaken_conj_right,
+  intro p,
+  split,
+  exact p,
+  exact p,
 end
 
 theorem disj_idempot :
   (P∨P) ↔ P  :=
 begin
-  sorry,
+  split,
+  intro h,
+  cases h with p1 p2,
+  exact p1,
+  exact p2,
+  apply weaken_disj_right,
 end
 
 end propositional
