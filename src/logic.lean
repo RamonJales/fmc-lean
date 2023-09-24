@@ -130,7 +130,17 @@ end
 theorem lem_irrefutable :
   ¬¬(P∨¬P)  :=
 begin
-  sorry,
+  intro h,
+  have h2 : P∨¬P,
+  right,
+  intro p,
+  have h3 : P∨¬P,
+  left,
+  exact p,
+  have f : false := h h3,
+  exact f,
+  have f : false := h h2,
+  exact f,
 end
 
 
