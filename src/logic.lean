@@ -534,37 +534,63 @@ end
 theorem exists_as_neg_forall :
   (∃x, P x) → ¬(∀x, ¬P x)  :=
 begin
-  sorry,
+  intro h1,
+  intro h2,
+  cases h1 with x px,
+  have npx := h2 x,
+  have f : false := npx px,
+  exact f,
 end
 
 theorem forall_as_neg_exists :
   (∀x, P x) → ¬(∃x, ¬P x)  :=
 begin
-  sorry,
+  intro h1,
+  intro h2,
+  cases h2 with x npx,
+  have px := h1 x,
+  have f : false := npx px,
+  exact f,
 end
 
-theorem forall_as_neg_exists_converse :
+theorem forall_as_neg_exists_converse : --⛤
   ¬(∃x, ¬P x) → (∀x, P x)  :=
 begin
-  sorry,
+  intro h1,
+  intro x,
+  by_contradiction h2,
+  apply h1,
+  existsi x,
+  exact h2,
 end
 
-theorem exists_as_neg_forall_converse :
+theorem exists_as_neg_forall_converse : --⛤
   ¬(∀x, ¬P x) → (∃x, P x)  :=
 begin
-  sorry,
+  intro h1,
+  by_contradiction h2,
+  apply h1,
+  intro x,
+  intro px,
+  apply h2,
+  existsi x,
+  exact px,
 end
 
-theorem forall_as_neg_exists_law :
+theorem forall_as_neg_exists_law : --⛤
   (∀x, P x) ↔ ¬(∃x, ¬P x)  :=
 begin
-  sorry,
+  split,
+  apply forall_as_neg_exists,
+  apply forall_as_neg_exists_converse,
 end
 
-theorem exists_as_neg_forall_law :
+theorem exists_as_neg_forall_law : --⛤
   (∃x, P x) ↔ ¬(∀x, ¬P x)  :=
 begin
-  sorry,
+  split,
+  apply exists_as_neg_forall,
+  apply exists_as_neg_forall_converse,
 end
 
 
